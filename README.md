@@ -1,1 +1,1 @@
-# -Intro-05-Swift-MathOperators
+# Intro-05-Swift-MathOperators
