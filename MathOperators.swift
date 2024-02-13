@@ -1,6 +1,25 @@
-import Foundation
+//
+
+//  MathOperators.swift
+
+//
+
+//  Created by Christopher Di Bert
+
+//  Created on Year-Month-Day
+
+//  Version 1.0
+
+//  Copyright (c) 2024 Christopher Di Bert. All rights reserved.
+
+//
+
+//  Explain what the program does.
+
 
 // Properties to be accessed by calculator methods
+import Foundation
+
 private var userDecimalPlaces = 0
 private var num1: Double = 0.0
 private var num2: Double = 0.0
