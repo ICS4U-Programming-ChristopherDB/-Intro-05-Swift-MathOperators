@@ -56,7 +56,7 @@ private func isValidOperation(_ userOperation: String) -> Bool {
 // Method used to retrieve the user's input
 private func getUserValues() -> String? {
     print("Enter how many decimal places you want in your answers: ", terminator: "")
-    
+
     if let decimalPlaces = Int(readLine()!){
         userDecimalPlaces = decimalPlaces
     } else {
