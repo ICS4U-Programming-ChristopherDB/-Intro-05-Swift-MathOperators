@@ -9,7 +9,7 @@ private let OPERATIONS = ["+", "-", "*", "/", "^", "sqrt"]
 func main() {
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
     print("Hello! Welcome to the calculator!")
-    
+
     // Gets the user's input, if there weren't any error messages returned,
     // it calls the math function. If not, prints the error message.
     let errorMessage = getUserValues()!
@@ -52,7 +52,7 @@ private func getUserValues() -> String? {
             return "You must only enter numbers!"
         }
         num1 = input1
-        
+
         print("Enter num 2: ", terminator: "")
         guard let input2 = Double(readLine()!) else {
             return "You must only enter numbers!"
