@@ -1,23 +1,3 @@
-//
-
-//  MathOperators.swift
-
-//
-
-//  Created by Christopher Di Bert
-
-//  Created on Year-Month-Day
-
-//  Version 1.0
-
-//  Copyright (c) 2024 Christopher Di Bert. All rights reserved.
-
-//
-
-//  Explain what the program does.
-
-
-// Properties to be accessed by calculator methods
 import Foundation
 
 private var userDecimalPlaces = 0
@@ -29,7 +9,7 @@ private let OPERATIONS = ["+", "-", "*", "/", "^", "sqrt"]
 func main() {
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
     print("Hello! Welcome to the calculator!")
-
+    
     // Gets the user's input, if there weren't any error messages returned,
     // it calls the math function. If not, prints the error message.
     let errorMessage = getUserValues()!
@@ -38,64 +18,52 @@ func main() {
     } else {
         print(errorMessage)
     }
-    
 }
 
 // Used to check if user's operator actually exists
 private func isValidOperation(_ userOperation: String) -> Bool {
-    // Foreach loop iterates through all possible operations
-    for operation in OPERATIONS {
-        if userOperation == operation {
-            return true
-        }
-    }
-    // User entered invalid operation
-    return false
+    return OPERATIONS.contains(userOperation)
 }
 
 // Method used to retrieve the user's input
 private func getUserValues() -> String? {
     print("Enter how many decimal places you want in your answers: ", terminator: "")
 
-    if let decimalPlaces = Int(readLine()!){
-        userDecimalPlaces = decimalPlaces
-    } else {
+    guard let decimalPlaces = Int(readLine()!) else {
         return "You must only enter a whole number!"
     }
+    userDecimalPlaces = decimalPlaces
 
     // Asks the user for the operation they want to use
     print("Enter the operation you wish to perform\n")
     print("(+, -, *, /, ^, sqrt)\n>> ", terminator: "")
 
     let operation = readLine()!
-    if isValidOperation(operation) == false {
+    guard isValidOperation(operation) else {
         return "You must enter a listed operator!"
-    } else {
-        userOperation = operation
     }
+    userOperation = operation
 
     // Gets numbers from the user. If the user wants to square root,
     // just tells them to enter one number.
     if userOperation.first != "s" {
         print("Enter num 1: ", terminator: "")
-        if let input1 = Double(readLine()!) {
-            num1 = input1
-        } else {
+        guard let input1 = Double(readLine()!) else {
             return "You must only enter numbers!"
         }
+        num1 = input1
+        
         print("Enter num 2: ", terminator: "")
-        if let input2 = Double(readLine()!) {
-            num2 = input2
-        } else {
+        guard let input2 = Double(readLine()!) else {
             return "You must only enter numbers!"
         }
+        num2 = input2
     } else {
         print("Enter a number to square root: ", terminator: "")
-        if let input1 = Double(readLine()!) {
-            num1 = input1
-        } else {
+        guard let input1 = Double(readLine()!) else {
             return "You must enter a valid number!"
         }
+        num1 = input1
     }
     // Returns any error messages or lack thereof
     return errorCheck()
